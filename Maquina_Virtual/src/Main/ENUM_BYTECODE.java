@@ -1,24 +1,24 @@
 package Main;
 
-public enum ENUM_COMMAND {
-	HELP, QUIT, NEWINST(1), RUN, RESET, REPLACE(1);
+public enum ENUM_BYTECODE {
+	PUSH(1), LOAD(1), STORE(1), ADD, SUB, MUL, DIV, OUT, HALT;
 	private int valueArg;
 	
 	/**
 	 * Constructora
 	 */
-	ENUM_COMMAND() {
-		this.valueArg = 0;
+	ENUM_BYTECODE() {
+		this(0);
 	}
 	/**
 	 * Constructora
 	 * @param n
 	 */
-	ENUM_COMMAND(int n) {
+	ENUM_BYTECODE(int n) {
 		this.valueArg = n;
 	}
 	/**
-	 * Devuelve el número de parámetros que tiene un comando
+	 * Devuelve el número de parámetros que tiene una instrucción
 	 * @return
 	 */
 	public int getValueArg(){
