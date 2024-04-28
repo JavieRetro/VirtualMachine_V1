@@ -39,8 +39,12 @@ public class OperandStack {
 	}
 	
 	public int getCima() {
-		return -1;
 		
+		if(isEmpty() == false) {
+			return this.Stack[Num_Elems];
+		}else {
+		return -1;
+		}
 	}
 }	
 	
