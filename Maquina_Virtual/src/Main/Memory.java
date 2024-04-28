@@ -12,7 +12,7 @@ public class Memory {
 			this.empty = true;
 		}
 		
-		public void resize(int pos) {
+		private void resize(int pos) {
 			if(pos >= size) {
 				this.empty = false;
 				Integer[]Memory2 = new Integer[pos * 2];
@@ -25,4 +25,25 @@ public class Memory {
 				this.Memory = Memory2;
 			}
 		}
+		
+		public boolean write(int posicion, int valor) {
+			if(posicion >= 0) {
+				this.resize(posicion);
+				this.Memory[posicion] = valor;
+				return true;
+			}else {
+				return false;
+			}
+		}
+		
+		public Integer read (int posicion) {
+			if(this.Memory[posicion] == null) {
+				
+			return -1;
+			}else {
+				return this.Memory[posicion] = posicion;
+			}
+			
+		}
 }
+
