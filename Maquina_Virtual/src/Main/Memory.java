@@ -19,15 +19,18 @@ public class Memory {
 		String memory = " ";
 		if (isEmpty() == false) {
 		for(int i = 0; i < size; i++) {
-			
+			if(this.Memory[i] == null) {
+				
+			}else {
 			memory += this.Memory[size] + " , ";
 				
 			}
+		}
 		return memory;
-		}else {
+		}else 
 		return null;
 	}
-}
+
 	
 	
 	private boolean isEmpty() {

@@ -9,6 +9,17 @@ public class OperandStack {
 		this.Stack = new int[MAX_Stack];
 	}
 	
+	public String toString() {
+		String texto = " ";
+		if (isEmpty() == false) {
+			for(int i = 0; i < Num_Elems; i++) {
+				texto += this.Stack[i] + " ";
+			}
+		return texto;
+	}else
+		return null;
+	}
+	
 	public boolean isEmpty() {
 		if(Num_Elems > 0) {
 			return false;
