@@ -4,7 +4,7 @@ public class CommandParser {
 	
 	public static Command parse(String line) {
 		
-		String[] cadena = line.trim().split("\\s+");
+		String[] cadena = line.split("\\s+");
 		ENUM_COMMAND  commandEnum;
 		commandEnum = ENUM_COMMAND.valueOf(cadena[0].toUpperCase());
 		if(cadena.length == 1) {
