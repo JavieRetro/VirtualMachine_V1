@@ -16,20 +16,20 @@ public class Memory {
 	@Override
 	//metodo toString
 	public String toString() {
-		String memory = " ";
-		if (isEmpty() == false) {
-		for(int i = 0; i < size; i++) {
-			if(this.Memory[i] == null) {
-				
-			}else {
-			memory += this.Memory[size] + " , ";
-				
+		String memory = "Memoria:  ";
+		String memory2 =""; 
+		if (isEmpty() == true) {
+			memory2 = "<vacia>";
+		} else {
+		for(int i = 0; i < memory.length(); i++) {
+		memory2 += "[" + i + "]" + ":" + Memory[i] + " ";	
 			}
+		  }
+		 memory += memory2;
+		 return memory;
 		}
-		return memory;
-		}else 
-		return null;
-	}
+      
+		
 
 	
 	
@@ -43,11 +43,15 @@ public class Memory {
 	}
 
 	private void resize (int posicion) {
-		if(posicion >= size) {
-			this.empty = false;
+		this.empty = false;
+		if(posicion >= Memory.length) {
 			Integer[] Memory2 = new Integer[posicion*2];
-			for (int i = 0; i < this.Memory.length; i++) {
-	            Memory2[i] = this.Memory[i];
+			for (int i = 0; i < Memory2.length; i++) {
+				if(i <= Memory.length) {
+	            Memory2[i] = Memory[i];
+				}else {
+			    Memory2[i] = null;
+				}
 	        }
 			this.Memory = Memory2;
 		}
@@ -66,11 +70,14 @@ public class Memory {
 	}
 }	
 	//metodo read(pos) return integer por el array;
-	public Integer read(int posicion) {
-		if(this.Memory[posicion] == null) {
-			return null;
+	public int read(int posicion) {
+		int valor;
+		if(Memory[posicion] >= 0) {
+			valor = Memory[posicion];
+			return valor;
 		}else {
-			return this.Memory[posicion];
+			valor = -1;
+			return valor;
 		}
 	}
 	
