@@ -17,13 +17,13 @@ public class CommandParser {
 			return new Command(ENUM_COMMAND.RUN);
 			
 		}else if(cadena[0].equalsIgnoreCase("NEWINST")) {
-			return new Command(ENUM_COMMAND.NEWINST);
+			return new Command(ENUM_COMMAND.NEWINST, ByteCodeParser.parse(cadena[0]));
 		
 		}else if(cadena[0].equalsIgnoreCase("RESET")) {
 			return new Command(ENUM_COMMAND.RESET);
 			
 		}else if(cadena[0].equalsIgnoreCase("REPLACE")) {
-			return new Command(ENUM_COMMAND.REPLACE);
+			return new Command(ENUM_COMMAND.REPLACE, Integer.parseInt(cadena[0]));
 			
 		}else {
 		return null;
