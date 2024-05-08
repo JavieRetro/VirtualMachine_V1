@@ -4,38 +4,31 @@ public class CommandParser {
 	
 	public static Command parse(String line) {
 		
-		String[] cadena = line.split("\\s+");
-		ENUM_COMMAND  commandEnum;
-		commandEnum = ENUM_COMMAND.valueOf(cadena[0].toUpperCase());
-		if(cadena.length == 1) {
-			switch(commandEnum) {
-			case HELP:
-				return new Command (commandEnum.HELP);
-			case QUIT:
-				return new Command (commandEnum.QUIT);
-			case RUN:
-				return new Command (commandEnum.RUN);
-			case RESET:
-				return new Command (commandEnum.RESET);
-			}
-		}else if(cadena.length == 2) {
-			switch(commandEnum) {
-			case NEWINST:
-			ByteCode instruction = ByteCodeParser.parse(cadena[1]);
-				return new Command (commandEnum.NEWINST, instruction);
-			case REPLACE:
-				int replace = Integer.parseInt(cadena[2]);
-				return new Command (commandEnum.REPLACE, replace);
-	
-			}
-		}else if(cadena.length == 3) {
-			ByteCode instruction = ByteCodeParser.parse(cadena[1]);
-			int replace = Integer.parseInt(cadena[2]);
-			return new Command (commandEnum.NEWINST, instruction, replace);
-		}
+		String[]cadena = line.split(" ");
+		if(cadena.length == 0) {
+			return null;
+		} else if(cadena[0].equalsIgnoreCase("HELP")) {
+			return new Command(ENUM_COMMAND.HELP);
 		
+		}else if (cadena[0].equalsIgnoreCase("QUIT")) {
+			return new Command(ENUM_COMMAND.QUIT);
+			
+		}else if(cadena[0].equalsIgnoreCase("RUN")) {
+			return new Command(ENUM_COMMAND.RUN);
+			
+		}else if(cadena[0].equalsIgnoreCase("NEWINST")) {
+			return new Command(ENUM_COMMAND.NEWINST);
+		
+		}else if(cadena[0].equalsIgnoreCase("RESET")) {
+			return new Command(ENUM_COMMAND.RESET);
+			
+		}else if(cadena[0].equalsIgnoreCase("REPLACE")) {
+			return new Command(ENUM_COMMAND.REPLACE);
+			
+		}else {
 		return null;
 		
 	}
 
-}
+  }
+}	
