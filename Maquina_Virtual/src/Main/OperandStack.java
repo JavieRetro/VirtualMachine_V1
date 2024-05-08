@@ -2,26 +2,31 @@ package Main;
 
 public class OperandStack {
 	private int[] Stack;//Array
-	private final int MAX_Stack = 100;
-	private int Num_Elems = 0;//Cantidad de instrucciones que poseo en el array
+	private static int MAX_Stack;;
+	private int Num_Elems;//Cantidad de instrucciones que poseo en el array
 
 	public OperandStack() {
+		this.Num_Elems = 0;
+		this.MAX_Stack = 10;
 		this.Stack = new int[MAX_Stack];
 	}
 	
 	public String toString() {
 		String texto = " ";
-		if (isEmpty() == false) {
-			for(int i = 0; i < Num_Elems; i++) {
+		if (isEmpty() == true) {
+			for(int i = 0; i < Stack.length; i++) {
 				texto += this.Stack[i] + " ";
 			}
+		}else{
+			texto = "vacío";
+			
+		}
 		return texto;
-	}else
-		return null;
+	
 	}
 	
 	public boolean isEmpty() {
-		if(Num_Elems > 0) {
+		if(this.Num_Elems > 0) {
 			return false;
 		}else {
 		return true;
@@ -52,7 +57,7 @@ public class OperandStack {
 	public int getCima() {
 		
 		if(isEmpty() == false) {
-			return this.Stack[Num_Elems];
+			return this.Stack[Num_Elems - 1];
 		}else {
 		return -1;
 		}
