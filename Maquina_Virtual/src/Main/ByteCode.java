@@ -9,16 +9,28 @@ public class ByteCode {
 		this.name = name;
 	}
 	
-	public ByteCode(ENUM_BYTECODE name, Integer valor){
+	public ByteCode(ENUM_BYTECODE name, int valor){
 		this.name = name;
 		this.valor = valor;
 	}
+	
+	public String toString() {
+		String cadena = this.name.toString().toUpperCase() + this.valor;
+		
+		return cadena;
+	}
+	
+	public ENUM_BYTECODE getInstruction() {
+		return this.name;
+	}
+	
 
-    public ENUM_BYTECODE getByteCode() {
-    	return this.name;
+    public int getParam() {
+    	return this.valor;
     }
     
     public int getValor() {
     	return this.valor;
     }
+    
 }
