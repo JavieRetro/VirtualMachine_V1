@@ -11,7 +11,7 @@ public class ByteCodeParser {
 			
 		} else if(s.length() == 1) {
 			
-			switch(arrayBc[1]) {
+			switch(arrayBc[0]) {
 			        case "ADD":
 			        	return new ByteCode(ENUM_BYTECODE.ADD);
 			        
