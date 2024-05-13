@@ -8,7 +8,7 @@ public class OperandStack {
 	public OperandStack() {
 		this.Num_Elems = 0;
 		this.MAX_Stack = 10;
-		this.Stack = new int[MAX_Stack];
+		this.Stack = new int[this.MAX_Stack];
 	}
 	
 	public String toString() {
@@ -36,7 +36,7 @@ public class OperandStack {
 	
 	public boolean push(int numero) {
 		if(this.Num_Elems < this.MAX_Stack) {
-			this.Stack[Num_Elems] = numero;
+			this.Stack[this.Num_Elems] = numero;
 			this.Num_Elems++;
 			return true;
 		}else {

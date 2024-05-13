@@ -2,21 +2,23 @@ package Main;
 
 public class Memory {
 	private Integer[] Memory;
-	private int size = 10; // Igual a numElems en OperandStack
-	private boolean empty;
+	private int size; // Igual a numElems en OperandStack
+	private boolean isEmpty;
 	private int max_Memory;
 	
 	//Constructora
 	public Memory() {
 		this.Memory = new Integer[size];
-		this.empty = true;
+		this.isEmpty = true;
+		this.max_Memory = 10;
+		this.size = 10;
 	}
 	
      
 	@Override
 	//metodo toString
 	public String toString() {
-		String memory = "Memoria:  ";
+		String memory = "Memoria:";
 		String memory2 =""; 
 		if (isEmpty() == true) {
 			memory2 = "<vacia>";
@@ -43,12 +45,12 @@ public class Memory {
 	}
 
 	private void resize (int posicion) {
-		this.empty = false;
-		if(posicion >= Memory.length) {
+		if(posicion >= this.size) {
+			this.isEmpty = false;
 			Integer[] Memory2 = new Integer[posicion*2];
 			for (int i = 0; i < Memory2.length; i++) {
 				if(i <= Memory.length) {
-	            Memory2[i] = Memory[i];
+	            Memory2[i] = this.Memory[i];
 				}else {
 			    Memory2[i] = null;
 				}
@@ -63,6 +65,7 @@ public class Memory {
 		if(posicion >= 0) {
 			this.resize(posicion);
 			this.Memory[posicion] = valor;
+			this.isEmpty = false;
 			return true;
 		}else {
 		
@@ -70,14 +73,11 @@ public class Memory {
 	}
 }	
 	//metodo read(pos) return integer por el array;
-	public int read(int posicion) {
-		int valor;
+	public Integer read(int posicion) {
 		if(Memory[posicion] >= 0) {
-			valor = Memory[posicion];
-			return valor;
+			return this.Memory[posicion];
 		}else {
-			valor = -1;
-			return valor;
+			return -1;
 		}
 	}
 	
