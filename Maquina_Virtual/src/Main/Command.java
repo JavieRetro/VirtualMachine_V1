@@ -1,65 +1,63 @@
 package Main;
 
-import java.util.Scanner;
-
 public class Command {
-	public static int valor = 0;
 	private ENUM_COMMAND command;
 	private ByteCode instruction;
 	private int replace;
 	
-	public Command(ENUM_COMMAND command, ByteCode instruction) {
-		this.command = command;
-		this.instruction = instruction;
+	public Command(ENUM_COMMAND com, ByteCode bc) {
+		this.command = com;
+		this.instruction = bc;
 	}
 	
-	public Command(ENUM_COMMAND command) {
-		this.command = command;
+	public Command(ENUM_COMMAND com) {
+		this.command = com;
 	}
 	
-	public Command(ENUM_COMMAND command, int replace) {
-		this.command = command;
-		this.replace = replace;
+	public Command(ENUM_COMMAND com, int elem) {
+		this.command = com;
+		this.replace = elem;
 	}
-
+	
+	
 	
 	public boolean execute(Engine engine) {
-		Engine Bc = new Engine();
 		
-		       switch(command) {
+		       switch(this.command) {
 		       case HELP:
-		    	   Bc.CommandHELP();
-		    	   valor = 1;
-		       break;
+		    	   return engine.CommandHELP();
 		       
 		       case RUN:
-		    	   Bc.CommandRUN();
-		    	   valor = 1;
-		    	   break;
+		    	   return engine.CommandRUN();
 		    	   
 		       case QUIT:
-		    	   Bc.CommandQUIT();
-		    	   valor = 1;
-		    	   break;
+		    	   return engine.CommandQUIT();
 		    	   
 		       case NEWINST:
-		    	   Bc.CommandNEWINST_BYTECODE();
-		    	   valor = 1;
-		    	   break;
+		    	   return engine.CommandNEWINST(this);
 		    	   
 		       case RESET:
-		    	   Bc.CommandRESET();
-		    	   valor = 1;
-		    	   break;
+		    	   return engine.CommandRESET();
 		    	   
 		       case REPLACE:
-		    	   valor = 1;
-		    	   Bc.CommandREPLACE();
-		    	   break;
-		       }
-		    while(valor == 0);
-		
-		return true;
+		    	   return engine.CommandREPLACE(this);
+		    	   
+		    	   default:
+		    		   return false;
+	    }	
+	}
+	
+	public ENUM_COMMAND getCommand() {
+		return this.command;
+	}
+	
+	public ByteCode getInstruction() {
+		return this.instruction;
+	}
+	
+	public int getReplace() {
+		return this.replace;
 		
 	}
 }
+

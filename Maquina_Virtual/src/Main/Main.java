@@ -1,11 +1,10 @@
 package Main;
 
 public class Main {
-
+     // TODO Auto-generated method stub
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Engine engine = new Engine();
-		engine.start();
+		Engine eng = new Engine();
+		eng.start();
 	}
 
 }
