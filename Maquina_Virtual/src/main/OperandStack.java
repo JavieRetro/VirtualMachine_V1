@@ -1,4 +1,4 @@
-package Main;
+package main;
 
 public class OperandStack {
 	private int[] Stack;//Array
@@ -14,11 +14,11 @@ public class OperandStack {
 	public String toString() {
 		String texto = "Pila: ";
 		if (this.isEmpty()) {
-			System.out.println("<vacia> ");
+			texto += ("<vacia>");
 		}else {
 			for(int i = 0; i < this.num_Elems; i++){
 				String numero = " " + this.Stack[i] + " ";
-				System.out.println(numero); 
+				texto += numero; 
 			}
 		}
 		return texto;

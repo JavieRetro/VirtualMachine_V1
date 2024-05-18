@@ -1,4 +1,4 @@
-package Main;
+package main;
 
 public enum ENUM_COMMAND {
 	HELP, QUIT, NEWINST(1), RUN, RESET, REPLACE(1);

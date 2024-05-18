@@ -1,4 +1,4 @@
-package Main;
+package main;
 
 public class CPU {
 	
@@ -6,34 +6,35 @@ public class CPU {
 	private Memory memory;
 	private boolean halt;
 	
+	
+	
 	public CPU() {
 		this.Stack = new OperandStack();
 		this.memory = new Memory();
-		this.halt = false;
-		
+		this.halt = false; 
 	}
 	
 	public boolean execute(ByteCode instr) {
 		
 		 switch (instr.getInstruction()) {
 	        case ADD:
-	            return sumaPila();
+	            return this.sumaPila();
 	        case SUB:
-	            return restaPila();
+	            return this.restaPila();
 	        case DIV:
-	            return dividirPila();
+	            return this.dividirPila();
 	        case MUL:
-	            return multiplicarPila();
+	            return this.multiplicarPila();
 	        case PUSH:
-	            return Push(instr.getparam());
+	            return this.Push(instr.getParam());
 	        case HALT:
 	            return this.Halt();
 	        case LOAD:
-	            return Load(instr.getparam());
+	            return this.Load(instr.getParam());
 	        case OUT:
-	            return Out();
+	            return this.Out();
 	        case STORE:
-	            return Store(instr.getparam());
+	            return this.Store(instr.getParam());
 	        default:
 	            return false;
 	        }
@@ -43,7 +44,7 @@ public class CPU {
 	
 
 	public String toString() {
-		return("Estado de la CPU: " + " \n " + " " + this.Stack.toString() + "\n" + "  " + this.memory.toString());
+		return("Estado de la CPU: " + " \n " + " " + this.memory.toString() + "\n" + " " + this.Stack.toString());
 	}
 
 		public void erase() {

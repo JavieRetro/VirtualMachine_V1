@@ -1,4 +1,4 @@
-package Main;
+package main;
 
 public class Command {
 	private ENUM_COMMAND command;
@@ -25,22 +25,22 @@ public class Command {
 		
 		       switch(this.command) {
 		       case HELP:
-		    	   return engine.CommandHELP();
+		    	   return engine.HELP();
 		       
 		       case RUN:
-		    	   return engine.CommandRUN();
+		    	   return engine.RUN();
 		    	   
 		       case QUIT:
-		    	   return engine.CommandQUIT();
+		    	   return engine.QUIT();
 		    	   
 		       case NEWINST:
-		    	   return engine.CommandNEWINST(this);
+		    	   return engine.NEWINST(this);
 		    	   
 		       case RESET:
-		    	   return engine.CommandRESET();
+		    	   return engine.RESET();
 		    	   
 		       case REPLACE:
-		    	   return engine.CommandREPLACE(this);
+		    	   return engine.REPLACE(this);
 		    	   
 		    	   default:
 		    		   return false;

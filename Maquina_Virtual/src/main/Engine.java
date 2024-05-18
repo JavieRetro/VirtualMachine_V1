@@ -1,4 +1,4 @@
-package Main;
+package main;
 
 import java.util.Scanner;
 
@@ -36,7 +36,7 @@ public class Engine {
 			}
 		}
 	
-	public boolean CommandHELP(){
+	public boolean HELP(){
 		System.out.println("HELP - Muestra esta ayuda ");
 		System.out.println(" QUIT - Cierra la aplicación ");
 		System.out.println(" RUN - Ejecuta el programa ");
@@ -47,22 +47,22 @@ public class Engine {
 		
 	}
 	
-	public boolean CommandQUIT(){
+	public boolean QUIT(){
 		System.out.println(this.program.toString());
-		System.out.println("Saliendo del programa: ");
+		System.out.println("Saliendo del programa... ");
 		this.end = true;
 		return true;
 		
 	}
 	
-	public boolean CommandRUN(){
+	public boolean RUN(){
 		System.out.println(this.program.runProgram(this.cpu));
 		System.out.println(this.program.toString());
 		return true;
 		
 	}
 	
-	public boolean CommandNEWINST(Command com){
+	public boolean NEWINST(Command com){
 		if(com.getInstruction() != null) {
 			
 			this.program.setInstruction(com.getInstruction());
@@ -73,14 +73,14 @@ public class Engine {
 	}
 }
 	
-	public boolean CommandRESET(){
+	public boolean RESET(){
 		this.program.reset();
 		return true;
 		
 	}
 	
-	public boolean CommandREPLACE(Command com){
-		if(com.getReplace() < this.program.programsize()){
+	public boolean REPLACE(Command com){
+		if(com.getReplace() < this.program.programSize()){
 			System.out.println("Nueva instrucción");
 			String texto = scanner.nextLine();
 			

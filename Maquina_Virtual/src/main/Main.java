@@ -1,4 +1,4 @@
-package Main;
+package main;
 
 public class Main {
      // TODO Auto-generated method stub

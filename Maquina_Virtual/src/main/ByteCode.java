@@ -1,4 +1,4 @@
-package Main;
+package main;
 
 public class ByteCode {
 
@@ -21,9 +21,9 @@ public class ByteCode {
 	 * @param valor parametro
 	 */
 	
-	public ByteCode(ENUM_BYTECODE bc, int numero){
+	public ByteCode(ENUM_BYTECODE bc, int param){
 		this.name = bc;
-		this.parametro = numero;
+		this.parametro = param;
 	}
 	
 	/**
@@ -51,7 +51,7 @@ public class ByteCode {
      * 
      * @return
      */
-    public int getparam() {
+    public int getParam() {
     	return this.parametro;
     }
 }
