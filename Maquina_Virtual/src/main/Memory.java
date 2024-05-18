@@ -1,42 +1,97 @@
 package main;
 
 public class Memory {
+	/**
+	 * Atributos
+	 */
 	private Integer[] memory;
-	private int size; // Igual a numElems en OperandStack
+	private final int MAX_MEMORY;
+	private int size;
 	private boolean isEmpty;
-	private final int MAX_MEMORY = 0;
-	
-	//Constructora
+
+	/**
+	 * Constructora
+	 */
 	public Memory() {
+		this.MAX_MEMORY = 10;
 		this.memory = new Integer[this.MAX_MEMORY];
-		this.isEmpty = true;
 		this.size = 10;
+		this.isEmpty = true;
 	}
-	
-     
-	@Override
-	//metodo toString
+
+	/**
+	 * Metodo que convierte el array en un String. Forma toda la linea de codigo que
+	 * tiene que imprimir
+	 * 
+	 * Complejidad: 0(n) donde n es la longitud del array memory
+	 * 
+	 * @return Retorna el array convertido en un String
+	 */
 	public String toString() {
-		String memoria = "Memoria:";
+		String cadena = "Memoria:";
 		if (isEmpty) {
-			memoria += " <vacía>";
+			cadena += " <vacía>";
 		} else {
-			for(int i = 0; i < memory.length; i++) {
+			int i = 0;
+			while (i < this.memory.length) {
 				if (this.memory[i] != null) {
-			 String num =("[" + i + "]" + this.memory[i] + " ");
-			 memoria += num;
+					String numero = " [" + i + "] " + this.memory[i] + "  ";
+					cadena += numero;
 				}
 				i++;
 			}
 		}
-		return memoria;
-	}   
+		return cadena;
+	}
 
-
-	private void resize (int posicion) {
-		if (posicion >= this.size) {
+	/**
+	 * Metodo que escribe el valor que el usuario indique
+	 * 
+	 * Complejidad: 0(1) ya que no variara en funcion del tamanio del datos
+	 * 
+	 * @param pos   Es la posicion donde se desea escribir. Si la posicion
+	 * @param value Es el valor que se desea escribir
+	 * @return Retorna true si se ha podido escribir, sino retorna false
+	 */
+	public boolean write(int position, int valor) {
+		if (position >= 0) {
+			this.resize(position);
+			this.memory[position] = valor;
 			this.isEmpty = false;
-			Integer[] memory2 = new Integer[posicion * 2];
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	/**
+	 * Metodo que lee valores
+	 * 
+	 * Complejidad: 0(1) ya que no variara en funcion del tamanio del dato
+	 * 
+	 * @param pos Es la posicion que se desea leer
+	 * @return Retorna el valor que ha leido el metodo
+	 */
+	public Integer read(int position) {
+		if (this.memory[position] == null) {
+			return -1;
+		} else {
+			return this.memory[position];
+		}
+	}
+
+	/**
+	 * Metodo que va aumentando el tamaño de nuestro array
+	 * 
+	 * Complejidad: 0(n) donde n es el tamanio del array memory
+	 * 
+	 * @param pos Es la posicion a la que se quiere llegar en el array
+	 */
+	private void resize(int position) {
+
+		if (position >= this.size) {
+			this.isEmpty = false;
+			Integer[] memory2 = new Integer[position * 2];
 			for (int i = 0; i < this.memory.length; i++) {
 				memory2[i] = this.memory[i];
 			}
@@ -44,23 +99,4 @@ public class Memory {
 		}
 	}
 
-	//metodo write(pos, value) return tipo boolean si se puede escribir, devolver true;
-	public boolean write(int posicion, int valor) {
-		if(posicion >= 0) {
-			this.resize(posicion);
-			this.memory[posicion] = valor;
-			this.isEmpty = false;
-			return true;
-		}else {	
-	        return false;
-	}
-}	
-	//metodo read(pos) return integer por el array;
-	public Integer read(int posicion) {
-		if(this.memory[posicion] == null) {
-			return -1;
-		}else {
-			return this.memory[posicion];
-		}
-	}
 }
