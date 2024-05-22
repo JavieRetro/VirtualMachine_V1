@@ -1,5 +1,9 @@
 package main;
-
+/**
+ * Clase ENUM_BYTECODE
+ * 
+ * @author javie
+ */
 public enum ENUM_BYTECODE {
 	PUSH(1), LOAD(1), STORE(1), ADD, SUB, MUL, DIV, OUT, HALT;
 	private int valueArg;

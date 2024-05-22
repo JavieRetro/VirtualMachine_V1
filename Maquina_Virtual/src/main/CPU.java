@@ -42,7 +42,7 @@ public class CPU {
 	        case MUL:
 	            return this.multiplicarPila();
 	        case PUSH:
-	            return this.Push(instr.getParam());
+	            return this.Stack.push(instr.getParam());
 	        case HALT:
 	            return this.Halt();
 	        case LOAD:
@@ -166,11 +166,6 @@ public class CPU {
 	}
 }
 	
-	public boolean Push(int elem) {
-		this.runCPU();
-		this.Stack.push(elem);	
-		return true;	
-	}
 	
 	/**
 	 * Anidar en la posicion de la memoria que le indiquemos de la

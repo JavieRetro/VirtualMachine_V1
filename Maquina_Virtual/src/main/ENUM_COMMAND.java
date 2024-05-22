@@ -23,7 +23,7 @@ public enum ENUM_COMMAND {
 	}
 	/**
 	 * Devuelve el número de parámetros que tiene un comando
-	 * @return
+	 * @return el num de parametros
 	 */
 	public int getValueArg(){
 		return this.valueArg;

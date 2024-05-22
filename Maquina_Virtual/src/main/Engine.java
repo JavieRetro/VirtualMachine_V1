@@ -91,7 +91,7 @@ public class Engine {
 	
 	/**
 	 * Método para introducir nuevas instr del programa
-	 * @param com
+	 * @param bc
 	 * 
 	 * @return true si se puede ejecutar, sino false
 	 */
@@ -119,7 +119,7 @@ public class Engine {
 	/**
 	 * Reemplazar una instr por otra que nostros introduzcamos
 	 * 
-	 * @param com
+	 * @param parametro
 	 * @return true si se ha podido ejecutar, sino false
 	 */
 	public boolean REPLACE(int parametro){
