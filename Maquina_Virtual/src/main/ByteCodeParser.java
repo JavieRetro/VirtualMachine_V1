@@ -10,11 +10,9 @@ public class ByteCodeParser {
 	
 	/**
 	 * 
-	 * @param s cadena de texto que  contiene un Bytecode
+	 * @param s cadena de texto que contiene un Bytecode
 	 * 
-	 * n es el tamanio de la cadena String
-	 * 
-	 * @return devuelve el Bytecode de s o null si no coincide con Bytecode
+	 * @return devuelve el Bytecode de s o null si no coincide con ningún Bytecode
 	 */
 
 	public static ByteCode parse(String s) {

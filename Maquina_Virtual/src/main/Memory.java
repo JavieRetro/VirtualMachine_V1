@@ -1,4 +1,9 @@
 package main;
+/**
+ * Clase Memory
+ * 
+ * @author javie
+ */
 
 public class Memory {
 	/**
@@ -18,14 +23,13 @@ public class Memory {
 		this.size = 10;
 		this.isEmpty = true;
 	}
-
 	/**
-	 * Metodo que convierte el array en un String. Forma toda la linea de codigo que
-	 * tiene que imprimir
+	 * Convertir el array en un string. Retornamos los elems del array
+	 * para usarlos en otros métodos
 	 * 
-	 * Complejidad: 0(n) donde n es la longitud del array memory
+	 * stack(n)= n es el nº elementos en la pila
 	 * 
-	 * @return Retorna el array convertido en un String
+	 * @return Retornamos el array en un String
 	 */
 	public String toString() {
 		String cadena = "Memoria:";
@@ -45,13 +49,12 @@ public class Memory {
 	}
 
 	/**
-	 * Metodo que escribe el valor que el usuario indique
+	 * Escribe el valor que indiquemos
 	 * 
-	 * Complejidad: 0(1) ya que no variara en funcion del tamanio del datos
 	 * 
-	 * @param pos   Es la posicion donde se desea escribir. Si la posicion
-	 * @param value Es el valor que se desea escribir
-	 * @return Retorna true si se ha podido escribir, sino retorna false
+	 * @param position Posicion donde queremos escribir. 
+	 * @param valor valor quequeremos a escribir en x posicion
+	 * @return true si la hemos escrito, sino retornar false
 	 */
 	public boolean write(int position, int valor) {
 		if (position >= 0) {
@@ -65,15 +68,13 @@ public class Memory {
 	}
 
 	/**
-	 * Metodo que lee valores
+	 * leer valores
 	 * 
-	 * Complejidad: 0(1) ya que no variara en funcion del tamanio del dato
-	 * 
-	 * @param pos Es la posicion que se desea leer
-	 * @return Retorna el valor que ha leido el metodo
+	 * @param position  posicion que queremos leer
+	 * @retu el valor que queremos leer
 	 */
 	public Integer read(int position) {
-		if (this.memory[position] == null) {
+		if (this.memory[position] == null && position < 0) {
 			return -1;
 		} else {
 			return this.memory[position];
@@ -81,11 +82,9 @@ public class Memory {
 	}
 
 	/**
-	 * Metodo que va aumentando el tamaño de nuestro array
+	 * Metodo para aumentar el tamaño del array Memory
 	 * 
-	 * Complejidad: 0(n) donde n es el tamanio del array memory
-	 * 
-	 * @param pos Es la posicion a la que se quiere llegar en el array
+	 * @param position Posicion adondé queremos llegar en el array
 	 */
 	private void resize(int position) {
 

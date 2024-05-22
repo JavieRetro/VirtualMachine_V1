@@ -1,9 +1,19 @@
 package main;
+/**
+ * Class ComandParser
+ * 
+ * @author javie
+ */
 
 public class CommandParser {
 	
 	public static Command parse(String s) {
-		
+		/**
+		 * Analizar la cadena que introducimos por consola
+		 * 
+		 * @param s cadena de texto que  introducimos
+		 * @return si s no corresponde con algun comando, null
+		 */
 		String[]cadena = s.toLowerCase().split(" ");
 		
 		switch(cadena.length) {

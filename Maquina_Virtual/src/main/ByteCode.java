@@ -1,14 +1,21 @@
 package main;
+/**
+ * Class ByteCode
+ * 
+ * @author javie
+ */
 
 public class ByteCode {
-
+	/**
+	 * Atributos
+	 */
 	private ENUM_BYTECODE name;
 	private int parametro;
 	
 	/**
 	 * Constructora
 	 * 
-	 * @param name Bytecode
+	 * @param bc Bytecode
 	 */
 	public ByteCode(ENUM_BYTECODE bc) {
 		this.name = bc;
@@ -17,7 +24,7 @@ public class ByteCode {
 	/**
 	 * Constructora 2
 	 * 
-	 * @param name Bytecode
+	 * @param bc Bytecode
 	 * @param valor parametro
 	 */
 	
@@ -40,7 +47,7 @@ public class ByteCode {
 	/**
 	 * Metodo para devolver el nombre del Bytecode
 	 * 
-	 * @return
+	 * @return nombre del ByteCode
 	 */
 	public ENUM_BYTECODE getInstruction() {
 		return this.name;
@@ -49,7 +56,7 @@ public class ByteCode {
     /**
      * Metodo que devuelve el parametro del Bytecode
      * 
-     * @return
+     * @return parametro del bytecode
      */
     public int getParam() {
     	return this.parametro;
