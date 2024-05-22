@@ -136,8 +136,8 @@ public class CPU {
 		if(num1 == -1 || num2 == -1){
 			return false;
 		}else {
-		int multiplicación = num1 * num2;
-		this.Stack.push(multiplicación);
+		int multiplicacion = num1 * num2;
+		this.Stack.push(multiplicacion);
 		return true;
 	}
 		} else{
