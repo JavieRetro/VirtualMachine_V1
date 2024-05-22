@@ -1,5 +1,9 @@
 package main;
-
+/**
+ * Clase ENUM_COMMAND
+ * 
+ * @author javie
+ */
 public enum ENUM_COMMAND {
 	HELP, QUIT, NEWINST(1), RUN, RESET, REPLACE(1);
 	private int valueArg;
