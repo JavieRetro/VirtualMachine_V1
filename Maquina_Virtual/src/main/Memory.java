@@ -71,7 +71,7 @@ public class Memory {
 	 * leer valores
 	 * 
 	 * @param position  posicion que queremos leer
-	 * @retu el valor que queremos leer
+	 * @return el valor que queremos leer
 	 */
 	public Integer read(int position) {
 		if (this.memory[position] == null && position < 0) {
