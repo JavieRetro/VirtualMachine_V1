@@ -6,6 +6,7 @@ Este proyecto trata sobre la creación de una máquina virtual simple en la se p
 ¿ Que clase de Operaciones se puede hacer?
 PUSH = almacena un número en la pila de operandos 
 Ejemplo de funcionamiento
+![image](https://github.com/JavieRetro/VirtualMachine_V1/assets/144839350/a9c8ce23-ecf2-42be-b2f9-626b9203fdf9)
 
 
 ADD, SUB, MUL, DIV = operaciones aritméticas entre la subcima y la cima de la pila de operandos
