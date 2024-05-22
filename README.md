@@ -56,4 +56,6 @@ el 3er trimestre de la asignatua de Programación
 ¿Estructura?
 
 El proyecto esta compuesto por 10 clases y 2 tipos enumerados
+
+
 ![image](https://github.com/JavieRetro/VirtualMachine_V1/assets/144839350/88a29e7a-3a72-4c80-ae4c-a9d2bf035e26)
