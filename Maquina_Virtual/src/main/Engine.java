@@ -1,14 +1,23 @@
 package main;
 
 import java.util.Scanner;
-
+/**
+ * Clase Engine
+ * 
+ * @author javie
+ */
 public class Engine {   
+	/**
+	 * Atributos
+	 */
 	private ByteCodeProgram program;
 	private boolean end;
 	private Scanner scanner;
 	private CPU cpu;
    
-	
+	/**
+	 * Constructora
+	 */
        public Engine() {
     	   this.end = false;
     	   this.program = new ByteCodeProgram();
@@ -16,6 +25,10 @@ public class Engine {
     	   this.cpu = new CPU();
     	   
        }
+       
+       /**
+        * Incializar el programa
+        */
 	public void start(){
 		// TODO Auto-generated method stub
 		while(!this.end){
@@ -35,7 +48,11 @@ public class Engine {
 				}
 			}
 		}
-	
+	/**
+	 * Muestra como funciona el programa
+	 * 
+	 * @return true si la podemos ejecutar, sino false
+	 */
 	public boolean HELP(){
 		System.out.println("HELP - Muestra esta ayuda ");
 		System.out.println(" QUIT - Cierra la aplicación ");
@@ -47,6 +64,11 @@ public class Engine {
 		
 	}
 	
+	/**
+	 * Finalizar el programa
+	 * 
+	 * @return true si se puede ejecutar, sino devolver false
+	 */
 	public boolean QUIT(){
 		System.out.println(this.program.toString());
 		System.out.println("Saliendo del programa... ");
@@ -55,6 +77,11 @@ public class Engine {
 		
 	}
 	
+	/**
+	 * Ejecutar las instrucciones introducidas en la consola
+	 * 
+	 * @return true si se ha ejecutado, sino false
+	 */
 	public boolean RUN(){
 		System.out.println(this.program.runProgram(this.cpu));
 		System.out.println(this.program.toString());
@@ -62,33 +89,50 @@ public class Engine {
 		
 	}
 	
-	public boolean NEWINST(Command com){
-		if(com.getInstruction() != null) {
+	/**
+	 * Método para introducir nuevas instr del programa
+	 * @param com
+	 * 
+	 * @return true si se puede ejecutar, sino false
+	 */
+	public boolean NEWINST(ByteCode bc){
+		if(bc.getInstruction() != null) {
 			
-			this.program.setInstruction(com.getInstruction());
+			this.program.setInstruction(bc);
 			System.out.println(this.program.toString());
 			return true;
 		}else {
 		return false;
 	}
 }
-	
+	/**
+	 * Vaciar el programa
+	 * 
+	 * @return true si se ejecuta, sino false
+	 */
 	public boolean RESET(){
 		this.program.reset();
 		return true;
 		
 	}
 	
-	public boolean REPLACE(Command com){
-		if(com.getReplace() < this.program.programSize()){
+	/**
+	 * Reemplazar una instr por otra que nostros introduzcamos
+	 * 
+	 * @param com
+	 * @return true si se ha podido ejecutar, sino false
+	 */
+	public boolean REPLACE(int parametro){
+		if(parametro < this.program.programSize()){
 			System.out.println("Nueva instrucción");
 			String texto = scanner.nextLine();
 			
 			ByteCode bc = ByteCodeParser.parse(texto);
-			this.program.setInstructionPosition(bc, com.getReplace());
+			this.program.setInstructionPosition(bc, parametro);
 			System.out.println(this.program.toString());
 			return true;
 		}else {
+			System.out.println("No se ha ejecutado el comando replace");
 			System.out.println(this.program.toString());
 			return false; 
 		}
